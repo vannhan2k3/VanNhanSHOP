@@ -1,0 +1,53 @@
+
+.wrap-verb-login{
+  width: 150px;
+  position: absolute;
+  right: 5px;
+  top: 42px;
+  background: white;
+  z-index: 10;
+  border-radius: 5px;
+
+  .wrap-about{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #d3d3d3;
+    cursor: pointer;
+    .info{
+      width: 30px;
+      height: 30px;
+      }
+    .about {
+      font-size: 19px;
+    }
+  }
+  
+  .wrap-caidat{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #d3d3d3;
+    cursor: pointer;
+    .setting{
+      width: 35px;
+      height: 25px;
+      }
+  }
+    
+  .wrap-dangxuat{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    .logout{
+      width: 30px;
+      height: 22px;
+    }
+    .btn-logout {
+      font-size: 19px;
+      cursor: pointer;
+  
+    }
+  }
+}

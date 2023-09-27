@@ -1,0 +1,21 @@
+.wrap-btn {
+    width: 100%;
+    text-align: center;
+    margin: 8px
+}
+
+.signin{
+    border-radius: 20px;
+    font-size: 20px;
+    border: none;
+    width: 50%;
+    height: 35px;
+    cursor: pointer;
+    margin: 8px 0;
+  }
+  .forgot{
+    display: block;
+    margin: 8px 0;
+    font-size: 17px;
+    left: 56%;
+  }

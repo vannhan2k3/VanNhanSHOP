@@ -1,0 +1,15 @@
+.pass{
+    padding: 0px 8px;
+    width: 95%;
+    height: 25px;
+    outline: none;
+    margin: 8px 0;
+}
+.mess-pass{
+    display: flex;
+    color: rgb(136, 45, 45);
+}
+.errors{
+    border: 1px solid;
+    color: red;
+}

@@ -1,0 +1,98 @@
+.modal{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 12;
+  
+  }
+ .modal-overlay{
+ width: 100%;
+ height: 100vh;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: rgba(141, 136, 136, 0.5);
+ }
+  .modal-body{
+
+     border-radius: 15px;
+      background-position: center;
+      max-width: 1000px;
+        width: 100%;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      gap: 20px;
+      z-index: 1;
+  }
+
+  .modal-body-header h2{
+    font-size: 26px;
+    color: aliceblue;
+  }
+  
+.modal-content{
+    width: 100%;
+}
+  .wrap-login {
+    background-color: gray;
+    max-width: 1000px;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    border-radius: 15px;
+}
+
+.wrap-login .img-login {
+    flex-basis: 50%;
+    background-image: url('https://pdp.edu.vn/wp-content/uploads/2021/02/hinh-nen-la-cay-dep-nhat-15.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.content-login {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+.cancel{
+    background-image: url(../../../../assets/cancel.png);
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+h2{
+  color: white;
+}
+
+
+
+.login-now{
+  cursor: pointer;
+  margin: 8px 0 ;
+  font-size: 16px;
+}
+.register-now{
+  margin: 8px 0 ;
+  font-size: 16px;
+  cursor: pointer;
+}
