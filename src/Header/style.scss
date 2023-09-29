@@ -3,6 +3,8 @@
   margin-bottom: 8px;
   background: rgb(238, 195, 121);
  display: flex;
+ position: fixed;
+ z-index: 10;
     .header{
         margin: auto;
         display: flex;
@@ -85,7 +87,7 @@
                     cursor: pointer;
                     border-radius: 50%;
                 }
-                .span-login{
+                .span-1{
                     display: flex;
                     align-items: center;
                     font-size: 20px;
@@ -94,7 +96,7 @@
                     height: 40px;
                     cursor: pointer;
                 }
-                .span-login:hover{
+                .span-1:hover{
                     background-color: rgb(245, 203, 139);
                     color: white;
                 }

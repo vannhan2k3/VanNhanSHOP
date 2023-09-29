@@ -4,6 +4,7 @@ import iPhone14 from '../../../../assets/iPhone 14.jpg';
 import './style.scss';
 import { STATIC_HOT, THUMBNAIL_PACEHOODER } from '../../../../constants/common';
 import { useNavigate } from 'react-router-dom';
+import ProductDetail from '../ProductDetail';
 
 ItemProduct.propTypes = {};
 

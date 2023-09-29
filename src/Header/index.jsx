@@ -64,7 +64,7 @@ function Header(props) {
               {openModalVerb && <ModalVerb onClose={closeToggle} isOpen={openModalVerb} />}
             </div>
           ) : (
-            <span className="span-login" onClick={() => handleOpenLogin()}>
+            <span className="span-1" onClick={() => handleOpenLogin()} style={{ fontSize: '20px', cursor: 'pointer' }}>
               Login
             </span>
           )}
