@@ -20,11 +20,11 @@ function Footer(props) {
         <a href="">
           <img className="icon-contact" src={twitter} alt="" />
         </a>
-        <a href="">
+        <a href="https://instagram.com/v.nhan_02?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
           <img className="icon-contact" src={instagram} alt="" />
         </a>
       </div>
-      <span> @copyRight 2023 by nguyen van nhan nickname nhanBlack</span>
+      <span> @copyRight 2023 by Nguyen Van Nhan, NickName NhanBlack@</span>
     </div>
   );
 }

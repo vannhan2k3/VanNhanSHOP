@@ -43,15 +43,6 @@ function Header(props) {
           {/* <img className="img-list" src={list} alt="" /> */}
           <h2 className="shop-card">SHOP CART</h2>
         </div>
-        <div className="menu">
-          <ul className="menu-list">
-            <li>Máy Lạnh</li>
-            <li>TV</li>
-            <li>Phone</li>
-            <li>Laptop</li>
-            <li>Phụ Kiện</li>
-          </ul>
-        </div>
         <div className="tim-kiem">
           <input className="input-timkiem" type="text" placeholder="Tìm Kiếm Sản Phẩm" />
           <img className="search" src={search} alt="" />

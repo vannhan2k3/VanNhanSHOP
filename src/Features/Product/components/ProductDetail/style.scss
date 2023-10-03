@@ -1,0 +1,15 @@
+.quantity{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background: rgb(241, 240, 240);
+    height: 45px;
+    width: 145px;
+    justify-content: space-between;
+    .add{
+        width: 20px;
+        padding: 10px;
+        cursor: pointer;
+    }
+}
