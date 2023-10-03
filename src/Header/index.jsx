@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './style.scss';
-import { Link, useNavigate } from 'react-router-dom';
-import list from '../../src/assets/list.png';
-import user from '../../src/assets/user.png';
-import vannhan from '../../src/assets/vannhan.jpg';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import logo from '../../src/assets/logo.png';
 import search from '../../src/assets/search.png';
-import nềnShop from '../../src/assets/nềnShop.jpg';
+import vannhan from '../../src/assets/vannhan.jpg';
 import Login from '../Features/Auth/components/Login';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../Features/Auth/userSlice';
 import ModalVerb from '../Features/Auth/components/ModalVerb';
+import './style.scss';
 Header.propTypes = {};
 
 function Header(props) {
@@ -40,8 +36,8 @@ function Header(props) {
     <div className="container">
       <div className="header">
         <div className="logo-menu" onClick={() => navigation('/')}>
-          {/* <img className="img-list" src={list} alt="" /> */}
-          <h2 className="shop-card">SHOP CART</h2>
+          <img className="img-list" src={logo} alt="" />
+          {/* <h2 className="shop-card">SHOP CART</h2> */}
         </div>
         <div className="tim-kiem">
           <input className="input-timkiem" type="text" placeholder="Tìm Kiếm Sản Phẩm" />
