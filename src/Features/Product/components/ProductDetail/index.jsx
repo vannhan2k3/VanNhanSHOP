@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import productApi from '../../../../api/productpi';
@@ -8,11 +8,18 @@ import dautru from '../../../../assets/dautru.png';
 import { STATIC_HOT, THUMBNAIL_PACEHOODER } from '../../../../constants/common';
 import { formatPrice } from '../../../../constants/common';
 import DOMPurify from 'dompurify';
+import aosominu from '../../../../assets/aosominu.jpg';
+import khautrang from '../../../../assets/khautrang.jpg';
+import skincare from '../../../../assets/skincare.jpg';
+import ocung from '../../../../assets/ocung.jpg';
+import laptop from '../../../../assets/laptop.jpg';
+import iphone from '../../../../assets/iphone12.jpg';
 import './style.scss';
 
 ProductDetail.propTypes = {};
 
 function ProductDetail(props) {
+  const imageUrl = useRef();
   const { id } = useParams();
   const [productData, setProductData] = useState();
   const [quantity, setQuantity] = useState(1); // Khởi tạo số lượng là 1
@@ -28,10 +35,33 @@ function ProductDetail(props) {
     fecthApi();
   }, [id]);
   console.log('hhhh', productData);
-  const imageUrl =
-    productData?.thumbnail && productData.thumbnail?.url
-      ? `${STATIC_HOT}${productData.thumbnail?.url}`
-      : THUMBNAIL_PACEHOODER;
+  if (productData?.thumbnail && productData.thumbnail?.url) {
+    imageUrl.current = `${STATIC_HOT}${productData.thumbnail?.url}`;
+  } else {
+    switch (productData?.category.id) {
+      case 1:
+        imageUrl.current = aosominu;
+        break;
+      case 2:
+        imageUrl.current = khautrang;
+        break;
+      case 3:
+        imageUrl.current = skincare;
+        break;
+      case 4:
+        imageUrl.current = laptop;
+        break;
+      case 5:
+        imageUrl.current = ocung;
+        break;
+      case 6:
+        imageUrl.current = iphone;
+        break;
+      default:
+        imageUrl.current = THUMBNAIL_PACEHOODER;
+        break;
+    }
+  }
   // Hàm để tăng số lượng
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -75,7 +105,7 @@ function ProductDetail(props) {
           <>
             <Grid item xs={4}>
               <Paper sx={{ padding: '16px' }}>
-                <img src={imageUrl} alt="" style={{ width: '350px', height: '380px' }} />
+                <img src={imageUrl.current} alt="" style={{ width: '350px', height: '380px' }} />
               </Paper>
             </Grid>
             <Grid item xs={8}>

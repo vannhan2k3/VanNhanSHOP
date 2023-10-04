@@ -55,7 +55,7 @@ function ItemProduct({ product }) {
         <img src={imageUrl.current} alt="" style={{ width: '100%', height: '100%' }} />
       </div>
       <div>
-        <span className="title">{product.category.id === 6 ? 'Iphone 12' : product.name}</span>
+        <span className="title">{product.category.id === 6 ? 'Iphone 12' : product.name.toLowerCase()}</span>
         <span className="price">{formatPrice(product.salePrice)}</span>
       </div>
     </div>

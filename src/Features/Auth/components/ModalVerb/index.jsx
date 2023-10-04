@@ -42,7 +42,7 @@ function ModalVerb({ onClose, isOpen }) {
 
   return (
     <div class="wrap-verb-login" ref={modalRef}>
-      <div className="wrap-about">
+      {/* <div className="wrap-about">
         <img className="info" src={info} alt="" />
         <p className="about">about</p>
       </div>
@@ -53,7 +53,21 @@ function ModalVerb({ onClose, isOpen }) {
       <div className="wrap-dangxuat" onClick={() => handleLogOut()}>
         <img className="logout" src={dangxuat} alt="" />
         <p className="btn-logout">logout</p>
-      </div>
+      </div> */}
+      <ul class="header__navbar-user-menu">
+        <li class="header__navbar-user-item">
+          <a href="/acount">Tài khoản</a>
+        </li>
+        <li class="header__navbar-user-item">
+          <a href="/address">Địa chỉ</a>
+        </li>
+        <li class="header__navbar-user-item">
+          <a href="/buy">Đơn mua</a>
+        </li>
+        <li class="header__navbar-user-item header__navbar-user-item--saparate" onClick={() => handleLogOut()}>
+          <span>Đăng xuất</span>
+        </li>
+      </ul>
     </div>
   );
 }

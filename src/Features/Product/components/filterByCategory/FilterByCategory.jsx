@@ -39,7 +39,7 @@ function FilterByCategory({ onChange }) {
   return (
     <Box padding="8px">
       <Typography sx={{ fontWeight: 600 }}>Danh Mục Sản Phẩm</Typography>
-      <ul>
+      <ul className="fillter">
         {listCategory &&
           listCategory.map((item) => {
             return (
