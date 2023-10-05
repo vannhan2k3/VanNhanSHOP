@@ -53,7 +53,7 @@
 
 .wrap-login .img-login {
     flex-basis: 50%;
-    background-image: url('https://pdp.edu.vn/wp-content/uploads/2021/02/hinh-nen-la-cay-dep-nhat-15.jpg');
+    background-image: url('../../../../assets/ecommerce.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -82,6 +82,7 @@
 
 h2{
   color: white;
+  font-size: 36px;
 }
 
 
@@ -90,9 +91,21 @@ h2{
   cursor: pointer;
   margin: 8px 0 ;
   font-size: 16px;
+
 }
 .register-now{
   margin: 8px 0 ;
   font-size: 16px;
   cursor: pointer;
+  color: white;
+}
+
+.forgot{
+  color: white;
+}
+
+.signin:hover{
+  background-color: rgb(96, 96, 255);
+  color: white;
+ 
 }

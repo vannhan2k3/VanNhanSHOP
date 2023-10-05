@@ -60,8 +60,11 @@ function Login({ onOpen }) {
                 {mode === 'register' && (
                   <div>
                     <RegisterForm onSubmit={handleSubmitRegister} />
-                    <span className="login-now" onClick={() => setMode('login')}>
-                      {' '}
+                    <span
+                      className="login-now"
+                      onClick={() => setMode('login')}
+                      style={{ color: 'white', margin: '8px 0' }}
+                    >
                       have account. login now
                     </span>
                   </div>
