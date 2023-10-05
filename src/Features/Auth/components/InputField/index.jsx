@@ -23,7 +23,7 @@ function InputField({ form, label, name }) {
               type="text"
               name={name}
               id=""
-              placeholder={name}
+              placeholder={label}
             />
           );
         }}

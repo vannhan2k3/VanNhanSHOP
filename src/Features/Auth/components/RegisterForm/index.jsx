@@ -32,11 +32,16 @@ function RegisterForm({ onSubmit }) {
     form.reset();
   };
   return (
-    <form onSubmit={form.handleSubmit(handleSubmit)}>
+    <form
+      onSubmit={form.handleSubmit(handleSubmit)}
+      style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center' }}
+    >
       <InputField name="email" label="Email" form={form} />
       <InputFieldPassword name="password" label="password" form={form} />
       <InputField name="fullName" label="fullName" form={form} />
-      <button type="submit">register</button>
+      <button type="submit" className="signin">
+        register
+      </button>
     </form>
   );
 }

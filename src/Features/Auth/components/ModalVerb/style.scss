@@ -7,6 +7,7 @@
   z-index: 10;
   border-radius: 5px;
 
+
   .wrap-about {
     display: flex;
     align-items: center;
@@ -67,8 +68,10 @@
   box-shadow: 0 1px 2px #a4a2a2;
   border-radius: 3px;
   background-color: white;
-  top: -10px;
+  top: 7px;
   padding: 12px;
+  right: 10px;
+  margin: 0;
 
   a {
     text-decoration: none;
@@ -86,12 +89,12 @@
   ::after {
     content: "";
     display: block;
-    border-width: 24px 24px;
+    border-width: 10px 10px;
     border-style: solid;
     border-color: transparent transparent white transparent;
     position: absolute;
-    top: -32%;
-    right: 10px;
+    top: -16%;
+    right: 23px;
     z-index: -1;
   }
 }
