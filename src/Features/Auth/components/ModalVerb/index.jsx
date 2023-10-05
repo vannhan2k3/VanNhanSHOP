@@ -5,6 +5,11 @@ import { logout } from '../../userSlice';
 import dangxuat from '../../../../../src/assets/dangxuat.png';
 import setting from '../../../../../src/assets/setting.png';
 import info from '../../../../../src/assets/info.png';
+import acount from '../../../../assets/user.png';
+import address from '../../../../assets/address.png';
+import logoutIcon from '../../../../assets/logout.png';
+import shoppingCart from '../../../../assets/shopping-bag.png';
+
 import { useEffect, useRef } from 'react';
 ModalVerb.propTypes = {};
 
@@ -16,44 +21,46 @@ function ModalVerb({ onClose, isOpen }) {
     dispatch(action);
     onClose();
   };
-  const modalRef = useRef(null);
+  const modalRef = useRef();
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose();
+      }
+    }
 
-  // Xử lý sự kiện click ngoài modal
-  // useEffect(() => {
-  //   function handleClickOutside(event) {
-  //     if (modalRef.current && !modalRef.current.contains(event.target)) {
-  //       onClose();
-  //     }
-  //   }
-
-  //   if (isOpen) {
-  //     // Thêm sự kiện click vào document khi modal mở
-  //     document.addEventListener('click', handleClickOutside);
-  //   } else {
-  //     // Loại bỏ sự kiện click khi modal đóng
-  //     document.removeEventListener('click', handleClickOutside);
-  //   }
-
-  //   return () => {
-  //     // Loại bỏ sự kiện khi component bị unmount
-  //     document.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, [isOpen, onClose]);
-
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
     <div class="wrap-verb-login" ref={modalRef}>
-      <div className="wrap-about">
-        <img className="info" src={info} alt="" />
-        <p className="about">about</p>
-      </div>
-      <div className="wrap-caidat">
-        <img className="setting" src={setting} alt="" />
-        <p className="caidat">setting</p>
-      </div>
-      <div className="wrap-dangxuat" onClick={() => handleLogOut()}>
-        <img className="logout" src={dangxuat} alt="" />
-        <p className="btn-logout">logout</p>
-      </div>
+      <ul class="header__navbar-user-menu">
+        <li class="header__navbar-user-item">
+          <a href="/acount">
+            <img src={acount} style={{ width: '15px', height: '15px', marginRight: '8px' }} alt="" /> Tài khoản
+          </a>
+        </li>
+        <li class="header__navbar-user-item">
+          <a href="/address">
+            <img src={address} style={{ width: '15px', height: '15px', marginRight: '8px' }} alt="" />
+            Địa chỉ
+          </a>
+        </li>
+        <li class="header__navbar-user-item">
+          <a href="/buy">
+            <img src={shoppingCart} style={{ width: '15px', height: '15px', marginRight: '8px' }} alt="" />
+            Đơn mua
+          </a>
+        </li>
+        <li class="header__navbar-user-item header__navbar-user-item--saparate">
+          <span onClick={() => handleLogOut()}>
+            <img src={logoutIcon} style={{ width: '15px', height: '15px', marginRight: '8px' }} alt="" />
+            Đăng xuất
+          </span>
+        </li>
+      </ul>
     </div>
   );
 }

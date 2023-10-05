@@ -1,5 +1,4 @@
-
-.wrap-verb-login{
+.wrap-verb-login {
   width: 150px;
   position: absolute;
   right: 5px;
@@ -8,46 +7,96 @@
   z-index: 10;
   border-radius: 5px;
 
-  .wrap-about{
+
+  .wrap-about {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     border-bottom: 1px solid #d3d3d3;
     cursor: pointer;
-    .info{
+
+    .info {
       width: 30px;
       height: 30px;
-      }
+    }
+
     .about {
       font-size: 19px;
     }
   }
-  
-  .wrap-caidat{
+
+  .wrap-caidat {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     border-bottom: 1px solid #d3d3d3;
     cursor: pointer;
-    .setting{
+
+    .setting {
       width: 35px;
       height: 25px;
-      }
+    }
   }
-    
-  .wrap-dangxuat{
+
+  .wrap-dangxuat {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
-    .logout{
+
+    .logout {
       width: 30px;
       height: 22px;
     }
+
     .btn-logout {
       font-size: 19px;
       cursor: pointer;
-  
+
     }
   }
 }
+
+.header__navbar-user-menu {
+  position: absolute;
+  padding-left: 0;
+  right: 0;
+  background-color: var(--white-color);
+  list-style: none;
+  width: 160px;
+  z-index: 2;
+  box-shadow: 0 1px 2px #a4a2a2;
+  border-radius: 3px;
+  background-color: white;
+  top: 7px;
+  padding: 12px;
+  right: 10px;
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  li {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #a4a2a2;
+    }
+  }
+
+  ::after {
+    content: "";
+    display: block;
+    border-width: 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    top: -16%;
+    right: 23px;
+    z-index: -1;
+  }
+}
+
+// .header__navbar-user-menu

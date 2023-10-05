@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../src/assets/logo.png';
@@ -6,13 +6,20 @@ import search from '../../src/assets/search.png';
 import vannhan from '../../src/assets/vannhan.jpg';
 import Login from '../Features/Auth/components/Login';
 import ModalVerb from '../Features/Auth/components/ModalVerb';
+import cart from '../assets/shopping-cart.png';
+import person from '../assets/person.png';
 import './style.scss';
+import ModalSearch from '../components/ModalSearch';
+import { useEffect } from 'react';
 Header.propTypes = {};
 
 function Header(props) {
   const [openLogin, setOpenLogin] = useState(false);
   const [openModalVerb, setOpenModalVerb] = useState(false);
+  const [openModalSearch, setOpenModalSearch] = useState(false);
+  const [searchItem, setSearchItem] = useState('');
   const navigation = useNavigate();
+  const modalRef = useRef(null);
 
   const current = useSelector((state) => state.user.current);
   const isLogin = !!current.id;
@@ -31,7 +38,29 @@ function Header(props) {
   const closeToggle = () => {
     setOpenModalVerb(false);
   };
-  console.log('modal ', openModalVerb);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setOpenModalSearch(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleOnchangeSearch = (e) => {
+    setSearchItem(e.target.value);
+  };
+  const handleResetInput = () => {
+    setSearchItem('');
+  };
+
+  const handleCloseModalSearch = () => {
+    setOpenModalSearch(false);
+  };
   return (
     <div className="container">
       <div className="header">
@@ -40,18 +69,41 @@ function Header(props) {
           {/* <h2 className="shop-card">SHOP CART</h2> */}
         </div>
         <div className="tim-kiem">
-          <input className="input-timkiem" type="text" placeholder="Tìm Kiếm Sản Phẩm" />
-          <img className="search" src={search} alt="" />
+          <input
+            className="input-timkiem"
+            type="text"
+            value={searchItem}
+            placeholder="Tìm Kiếm Sản Phẩm"
+            onChange={(e) => handleOnchangeSearch(e)}
+            onClick={() => setOpenModalSearch(true)}
+          />
+          {openModalSearch && (
+            <ModalSearch
+              modalRef={modalRef}
+              searchItem={searchItem}
+              onResetInput={handleResetInput}
+              handleCloseModalSearch={handleCloseModalSearch}
+            />
+          )}
+          {/* <img className="search" src={search} alt="" /> */}
         </div>
         <div className="logo-login">
+          <div className="cart">
+            <img className="img-cart" src={cart} alt="" style={{ width: '30px', height: '30px' }} />
+            <span>12</span>
+          </div>
           {isLogin ? (
             <div className="logo-name">
               <span className="current"> {current.fullName}</span>
-              <img className="vannhan" src={vannhan} alt="" onClick={toggleModalVerb} />
+              <img className="vannhan" src={person} alt="" onClick={toggleModalVerb} />
               {openModalVerb && <ModalVerb onClose={closeToggle} isOpen={openModalVerb} />}
             </div>
           ) : (
-            <span className="span-1" onClick={() => handleOpenLogin()} style={{ fontSize: '20px', cursor: 'pointer' }}>
+            <span
+              className="span-1"
+              onClick={() => handleOpenLogin()}
+              style={{ fontSize: '18px', cursor: 'pointer', color: 'white' }}
+            >
               Login
             </span>
           )}
