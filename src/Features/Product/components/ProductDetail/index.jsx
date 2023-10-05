@@ -18,12 +18,7 @@ import './style.scss';
 
 ProductDetail.propTypes = {};
 
-<<<<<<< HEAD
-function ProductDetail({ product }) {
-=======
 function ProductDetail(props) {
-  const imageUrl = useRef();
->>>>>>> 972d7bc5e06c2a37018aaf5083073f058f256edc
   const { id } = useParams();
   const [productData, setProductData] = useState();
   const [quantity, setQuantity] = useState(1); // Khởi tạo số lượng là 1
@@ -39,41 +34,7 @@ function ProductDetail(props) {
     }
     fecthApi();
   }, [id]);
-  console.log('hhhh', productData);
-<<<<<<< HEAD
-  // const imageUrl =
-  //   productData?.thumbnail && productData.thumbnail?.url
-  //     ? `${STATIC_HOT}${productData.thumbnail?.url}`
-  //     : THUMBNAIL_PACEHOODER;
-=======
-  if (productData?.thumbnail && productData.thumbnail?.url) {
-    imageUrl.current = `${STATIC_HOT}${productData.thumbnail?.url}`;
-  } else {
-    switch (productData?.category.id) {
-      case 1:
-        imageUrl.current = aosominu;
-        break;
-      case 2:
-        imageUrl.current = khautrang;
-        break;
-      case 3:
-        imageUrl.current = skincare;
-        break;
-      case 4:
-        imageUrl.current = laptop;
-        break;
-      case 5:
-        imageUrl.current = ocung;
-        break;
-      case 6:
-        imageUrl.current = iphone;
-        break;
-      default:
-        imageUrl.current = THUMBNAIL_PACEHOODER;
-        break;
-    }
-  }
->>>>>>> 972d7bc5e06c2a37018aaf5083073f058f256edc
+
   // Hàm để tăng số lượng
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
