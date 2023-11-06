@@ -15,6 +15,8 @@ import ocung from '../../../../assets/ocung.jpg';
 import laptop from '../../../../assets/laptop.jpg';
 import iphone from '../../../../assets/iphone12.jpg';
 import './style.scss';
+import { useDispatch } from 'react-redux';
+import { addTocart, showMiniCart } from '../../../Cart/cartSlice';
 
 ProductDetail.propTypes = {};
 
@@ -26,6 +28,7 @@ function ProductDetail(props) {
   const safeDescription = DOMPurify.sanitize(productData?.description);
   const mark = { __html: safeDescription };
   const imageUrl = useRef();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fecthApi() {
@@ -46,29 +49,15 @@ function ProductDetail(props) {
       setQuantity(quantity - 1);
     }
   };
-
-  // Hàm để thêm vào giỏ hàng
-  const addToCart = () => {
-    const newItem = {
-      id: productData?.id,
-      name: productData?.name,
-      price: productData?.salePrice,
+  const handleAddToCart = () => {
+    console.log('check quantity,', quantity);
+    const action = addTocart({
+      id: productData.id,
+      product: productData,
       quantity: quantity,
-    };
-    const existingItemIndex = cart.findIndex((item) => item.id === newItem.id);
-
-    if (existingItemIndex !== -1) {
-      // Nếu sản phẩm đã có trong giỏ hàng, cập nhật số lượng
-      const updatedCart = [...cart];
-      updatedCart[existingItemIndex].quantity += quantity;
-      setCart(updatedCart);
-    } else {
-      // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
-      setCart([...cart, newItem]);
-    }
-
-    // Ghi log để kiểm tra giỏ hàng
-    console.log('Giỏ hàng:', cart);
+    });
+    dispatch(action);
+    dispatch(showMiniCart());
   };
 
   if (productData?.thumbnail && productData.thumbnail?.url) {
@@ -125,10 +114,9 @@ function ProductDetail(props) {
                   <img className="add" src={daucong} alt="" onClick={increaseQuantity} />
                 </div>
                 <div>
-                  <Button variant="contained" onClick={addToCart}>
+                  <Button variant="contained" onClick={handleAddToCart}>
                     Add To Cart
                   </Button>
-                  <p>Số lượng trong giỏ hàng: {cart.reduce((total, item) => total + item.quantity, 0)}</p>
                 </div>
               </Paper>
             </Grid>

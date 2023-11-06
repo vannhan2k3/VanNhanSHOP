@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../src/assets/logo.png';
 import search from '../../src/assets/search.png';
@@ -11,6 +11,9 @@ import person from '../assets/person.png';
 import './style.scss';
 import ModalSearch from '../components/ModalSearch';
 import { useEffect } from 'react';
+import { itemCartCountSelector, itemCartTotalSelector } from '../Features/Cart/selector';
+import ModalCart from '../components/ModalCart';
+import { hideMinicart, showMiniCart } from '../Features/Cart/cartSlice';
 Header.propTypes = {};
 
 function Header(props) {
@@ -22,8 +25,16 @@ function Header(props) {
   const modalRef = useRef(null);
 
   const current = useSelector((state) => state.user.current);
+  ///////////////////////tinh so luong sp/////
+  const countProduct = useSelector(itemCartCountSelector);
+
+  const showCart = useSelector((state) => state.cart.showCart);
+  const dispatch = useDispatch();
+
+  const [quantity, setQuantity] = useState(0);
   const isLogin = !!current.id;
 
+  console.log('count product', countProduct);
   const handleOpenLogin = () => {
     setOpenLogin(!openLogin);
   };
@@ -42,6 +53,7 @@ function Header(props) {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setOpenModalSearch(false);
+        dispatch(hideMinicart());
       }
     }
 
@@ -61,6 +73,10 @@ function Header(props) {
   const handleCloseModalSearch = () => {
     setOpenModalSearch(false);
   };
+
+  useEffect(() => {
+    setQuantity(countProduct);
+  }, [countProduct]);
   return (
     <div className="container">
       <div className="header">
@@ -88,9 +104,10 @@ function Header(props) {
           {/* <img className="search" src={search} alt="" /> */}
         </div>
         <div className="logo-login">
-          <div className="cart">
+          <div className="cart" onClick={() => dispatch(showMiniCart())}>
             <img className="img-cart" src={cart} alt="" style={{ width: '30px', height: '30px' }} />
-            <span>12</span>
+            <span className="count">{quantity}</span>
+            {showCart && <ModalCart modalRef={modalRef} />}
           </div>
           {isLogin ? (
             <div className="logo-name">

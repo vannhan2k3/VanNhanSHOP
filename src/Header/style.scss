@@ -62,11 +62,7 @@
         .logo-login {
             display: flex;
             align-items: center;
-<<<<<<< HEAD
-            justify-content: center;
-=======
             justify-content: flex-end;
->>>>>>> 972d7bc5e06c2a37018aaf5083073f058f256edc
             flex-basis: 30%;
             gap: 19px;
 
@@ -74,7 +70,7 @@
                 position: relative;
                 cursor: pointer;
 
-                span {
+                .count {
                     position: absolute;
                     color: white;
                     background-color: rgb(250, 32, 32);

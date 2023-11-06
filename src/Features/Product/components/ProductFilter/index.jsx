@@ -15,7 +15,6 @@ function ProductFilter({ onChange, filters }) {
       ...filters,
       'category.id': newCategroyId,
     };
-    console.log('new Fillter', newFilters);
     onChange(newFilters);
   };
   const handleChange = (values) => {

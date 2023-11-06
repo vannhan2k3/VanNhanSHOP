@@ -5,6 +5,8 @@ import Header from './Header';
 
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
+import ModalCart from './components/ModalCart';
+import DetailCart from './Features/DetailCart';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Product />} />
         <Route path="/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<DetailCart />} />
       </Routes>
       <Footer />
     </div>
