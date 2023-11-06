@@ -34,7 +34,6 @@ function Header(props) {
   const [quantity, setQuantity] = useState(0);
   const isLogin = !!current.id;
 
-  console.log('count product', countProduct);
   const handleOpenLogin = () => {
     setOpenLogin(!openLogin);
   };

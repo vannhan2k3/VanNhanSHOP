@@ -9,7 +9,7 @@ function InputField({ form, label, name }) {
   const {
     formState: { errors },
   } = form;
-  console.log('errors', errors);
+
   return (
     <div>
       <Controller

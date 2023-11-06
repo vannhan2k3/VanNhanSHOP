@@ -18,10 +18,9 @@ function ModalCart({ modalRef }) {
   const itemCart = useSelector((state) => state.cart.itemCart);
   const dispatch = useDispatch();
   const navigation = useNavigate();
-  console.log('itemcart', itemCart);
+
   const imageUrl = useRef();
   const handleDelete = (id) => {
-    console.log('lốc ây đi ở hen đồ đì lét', id);
     dispatch(removeItemCart(id));
   };
   return (

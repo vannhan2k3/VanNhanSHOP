@@ -23,16 +23,13 @@ function Login({ onOpen }) {
   };
 
   const handleSubmitRegister = async (value) => {
-    console.log(value);
     value.username = value.email;
     const action = register(value);
     const resulAction = await dispatch(action);
 
     const user = unwrapResult(resulAction);
-    console.log('dang ki thanh cong', user);
   };
   const handleSubmitLogin = async (value) => {
-    console.log(value);
     const action = login(value);
     const resulAction = await dispatch(action);
 
@@ -40,7 +37,6 @@ function Login({ onOpen }) {
     if (user) {
       onOpen();
     }
-    console.log('dang nhap thanh cong', user);
   };
   return (
     <div>

@@ -50,7 +50,6 @@ function ProductDetail(props) {
     }
   };
   const handleAddToCart = () => {
-    console.log('check quantity,', quantity);
     const action = addTocart({
       id: productData.id,
       product: productData,

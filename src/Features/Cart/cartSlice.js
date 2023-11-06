@@ -14,7 +14,6 @@ export const cartSlice = createSlice({
       state.showCart = false;
     },
     addTocart: (state, action) => {
-      console.log('check action ', action);
       const newItem = action.payload;
       //{id,product,quantity}
       const index = state.itemCart.findIndex((x) => x.id === newItem.id);
@@ -33,7 +32,7 @@ export const cartSlice = createSlice({
     },
     removeItemCart: (state, action) => {
       const id = action.payload;
-      console.log('loosc ay di', id);
+
       state.itemCart = state.itemCart.filter((x) => x.id !== id);
     },
   },

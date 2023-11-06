@@ -17,52 +17,51 @@ import DOMPurify from 'dompurify';
 DetailCart.propTypes = {};
 
 function DetailCart(props) {
-  // const { id } = useParams();
-  // const itemCart = useSelector((state) => state.cart.itemCart);
-  // console.log('detailcart', itemCart);
-  // const [detailData, setDetailData] = useState();
-  // const imageUrl = useRef();
+  const { id } = useParams();
+  const itemCart = useSelector((state) => state.cart.itemCart);
 
-  // tinh tong tiền
-  // const totalMoney = useSelector(itemCartTotalSelector);
-  // console.log('tô tồnmon ni', totalMoney);
-  // useEffect(() => {
-  //   async function fecthApi() {
-  //     let res = await productApi.get(id);
-  //     setDetailData(res.data);
-  //     console.log(res.data, 'check');
-  //   }
+  const [detailData, setDetailData] = useState();
+  const imageUrl = useRef();
 
-  //   fecthApi();
-  // }, [id]);
+  //tinh tong tiền
+  const totalMoney = useSelector(itemCartTotalSelector);
 
-  // if (detailData?.thumbnail && detailData.thumbnail?.url) {
-  //   imageUrl.current = `${STATIC_HOT}${detailData.thumbnail?.url}`;
-  // } else {
-  //   switch (detailData?.category.id) {
-  //     case 1:
-  //       imageUrl.current = aosominu;
-  //       break;
-  //     case 2:
-  //       imageUrl.current = khautrang;
-  //       break;
-  //     case 3:
-  //       imageUrl.current = skincare;
-  //       break;
-  //     case 4:
-  //       imageUrl.current = laptop;
-  //       break;
-  //     case 5:
-  //       imageUrl.current = ocung;
-  //       break;
-  //     case 6:
-  //       imageUrl.current = iphone;
-  //       break;
-  //     default:
-  //       imageUrl.current = THUMBNAIL_PACEHOODER;
-  //       break;
-  //   }
-  // }
+  useEffect(() => {
+    async function fecthApi() {
+      let res = await productApi.get(id);
+      setDetailData(res.data);
+    }
+
+    fecthApi();
+  }, [id]);
+
+  if (detailData?.thumbnail && detailData.thumbnail?.url) {
+    imageUrl.current = `${STATIC_HOT}${detailData.thumbnail?.url}`;
+  } else {
+    switch (detailData?.category.id) {
+      case 1:
+        imageUrl.current = aosominu;
+        break;
+      case 2:
+        imageUrl.current = khautrang;
+        break;
+      case 3:
+        imageUrl.current = skincare;
+        break;
+      case 4:
+        imageUrl.current = laptop;
+        break;
+      case 5:
+        imageUrl.current = ocung;
+        break;
+      case 6:
+        imageUrl.current = iphone;
+        break;
+      default:
+        imageUrl.current = THUMBNAIL_PACEHOODER;
+        break;
+    }
+  }
   return (
     <div style={{ paddingTop: '80px' }}>
       <h3>Sản Phẩm Trong Giỏ Hàng </h3>

@@ -23,10 +23,7 @@ function FilterByCategory({ onChange }) {
           };
         });
         setListCategory(newObjCategory);
-        console.log('res by category', res);
-      } catch (error) {
-        console.log('fetch api categroy error', error);
-      }
+      } catch (error) {}
     };
     fetchAPI();
   }, []);

@@ -1,7 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 const itemCartSelector = (state) => {
-  console.log(state);
   return state.cart.itemCart;
 };
 

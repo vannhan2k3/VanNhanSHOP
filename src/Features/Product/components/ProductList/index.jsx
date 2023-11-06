@@ -13,7 +13,7 @@ ProductList.propTypes = {};
 function ProductList(props) {
   const location = useLocation();
   const navigation = useNavigate();
-  console.log('hahaha', location);
+
   const [isLoading, setIsLoading] = useState(true);
   const [queryParam, setQueryParam] = useState({
     _page: 1,
@@ -69,12 +69,12 @@ function ProductList(props) {
     //   ...queryParam,
     //   'category.id': id,
     // });
-    console.log('newfilter: ', value);
+
     const newFillter = {
       ...queryParams,
       ...value,
     };
-    console.log('newfilter: ', newFillter);
+
     navigation({
       pathname: location.pathname,
       search: queryString.stringify(newFillter),

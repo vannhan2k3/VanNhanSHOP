@@ -25,7 +25,6 @@ function LoginForm({ onSubmit, onOpen }) {
     resolver: yupResolver(schema),
   });
   const handleSubmit = (value) => {
-    console.log(value);
     onSubmit(value);
   };
   return (
